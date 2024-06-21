@@ -5,7 +5,7 @@ import TopnavLeftpart from "./TopnavLeftpart";
 import TopnavCentralpart from './TopnavCentralpart';
 export default function Topnav() {
   let grid_css = {
-    container_grid: { marginTop: "0vh", width: "97.6vw",border:"2px solid red",height:"100%" },
+    container_grid: { marginTop: "0vh", width: "97.6vw",height:"100%" },
     first_child_grid: { display: "flex" },
     second_child_grid: {  marginTop: "1vh" },
     third_child_grid: {
