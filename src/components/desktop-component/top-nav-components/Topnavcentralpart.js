@@ -1,4 +1,4 @@
-import {React,useState}  from "react";
+import {React}  from "react";
 import Grid from "@mui/material/Unstable_Grid2";
 import HomeIcon from "@mui/icons-material/Home";
 import StoreIcon from "@mui/icons-material/Store";
@@ -6,7 +6,7 @@ import FontDownloadIcon from "@mui/icons-material/FontDownload";
 import Icontextwrapper from "./Icontextwrapper";
 
 export default function Topnavcentralpart() {
-  let[iconcolor,seticonclor]=useState("#041E42")
+  let container_grid_css={width: "23vw"};
   let icons = [
     {
       grid_xs: 3,
@@ -86,7 +86,7 @@ export default function Topnavcentralpart() {
   ];
 
   return (
-    <Grid container spacing={0} style={{ width: "23vw" }}>
+    <Grid container spacing={0} style={container_grid_css}>
       {icons.map((objt) => (
         <Grid
           xs={objt.grid_xs}

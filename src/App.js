@@ -1,15 +1,15 @@
 import logo from './logo.svg';
 import './App.css';
-import Topnav from './components/topNavComponents/Topnav';
 import Desktoproot from './components/Desktoproot';
-import Mobileroot from './components/Mobileroot';
+import Tabletroot from './components/Tabletroot';
 import { useMediaQuery } from 'react-responsive'
-
 function App() {
   const isDesktop = useMediaQuery({minWidth:870 , maxWidth: 1800 })
+  const isTablet= useMediaQuery({minWidth:530,maxWidth:860})
   return (
     <div className="App">
-    {isDesktop?<Desktoproot/>:<Mobileroot/>}
+    {isDesktop && <Desktoproot/>}
+    {isTablet && <Tabletroot/>}
     
     </div>
   );

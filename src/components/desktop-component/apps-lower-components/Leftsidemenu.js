@@ -1,12 +1,10 @@
 import { React, useContext, useEffect, useState } from "react";
-import MyContext from "./context/MyContext";
+import MyContext from "../../context/MyContext";
 import KeyboardBackspaceIcon from "@mui/icons-material/KeyboardBackspace";
 export default function Leftsidemenu() {
   let menuData = useContext(MyContext);
-  let [goBackToPreviousMenu, setGoBackPrevMenu] = useState("false");
   let [, ...iconsObject] = menuData;
   let [menuToDisplay, setMenu] = useState([...iconsObject]);
-  let [previousMenu, setPrevousMenu] = useState(null);
   let [backArrow, setbckArrow] = useState({
     show: false,
     textWithArrow: "Direct By Farm",
@@ -14,7 +12,7 @@ export default function Leftsidemenu() {
 
   let cssobject = {
     h1_css: {
-      borderBottom: "1px solid light grey",
+      borderBottom: "1px solid light rgb(211, 213, 211)",
       borderRadius: "4px",
       textAlign: "start",
       fontFamily: "Roboto, sans-serif",
@@ -34,6 +32,17 @@ export default function Leftsidemenu() {
       borderTopColor: "#D1D0CE",
       borderTopWidth: "1px",
     },
+    secondDiv_css_submenu: {
+      display: "flex",
+      flexDirection: "column",
+      // justifyContent: "space-between",
+      height: "91%",
+      borderRightStyle: "solid",
+      borderRightColor: "white",
+      borderTopStyle: "solid",
+      borderTopColor: "#D1D0CE",
+      borderTopWidth: "1px",
+    },
     button_css: {
       display: "flex",
       paddingLeft: "1vw",
@@ -45,11 +54,32 @@ export default function Leftsidemenu() {
       borderRadius: "1vh",
       marginRight: "1vw",
     },
+    submenu_buttn_css: {
+      // border:"2px solid black",
+      display: "flex",
+      paddingLeft: "1vw",
+      height: "7vh",
+      paddingTop: "0.5vh",
+      backgroundColor: "#eeeeee",
+      border: "none",
+      borderRadius: "1vh",
+      marginRight: "1vw",
+    },
     iconTextcss: {
       marginLeft: "0.5vw",
       marginTop: "0.6vh",
       fontSize: "1.2vw",
-      fontWeight: "580",
+    fontWeight: '600',
+    fontFamily: 'Open Sans, sans-serif',
+    color: '#050505'
+    },
+    submenu_iconTextcss: {
+      marginLeft: "0.5vw",
+      marginTop: "0.6vh",
+      fontSize: "1.2vw",
+      fontWeight: '600',
+      fontFamily: 'Open Sans, sans-serif',
+      color: '#050505'
     },
   };
 
@@ -57,7 +87,7 @@ export default function Leftsidemenu() {
   const menuButtnHandler = (evnt, iconText, submenu) => {
     if (submenu.length > 0) {
       setbckArrow({ show: true, textWithArrow: iconText });
-      setMenu([...submenu])
+      setMenu([...submenu]);
     }
   };
   const backArrowEventhandler = (event) => {
@@ -79,20 +109,22 @@ export default function Leftsidemenu() {
         <h1 style={cssobject["h1_css"]}>Categories</h1>
       )}
 
-      <div style={cssobject["secondDiv_css"]}>
+      <div
+        style={
+          backArrow.show == false
+            ? cssobject["secondDiv_css"]
+            : cssobject["secondDiv_css_submenu"]
+        }
+      >
         {menuToDisplay.map((obj) => {
           return (
             <button
               onClick={(evnt) => {
-                if(obj.hasOwnProperty("submenu")){
-                  console.log("have sub menu");
-                  // console.log("obj[submenu]:", [...obj["submenu"]]);
-                  // let arr = [...obj["submenu"]];
+                if (obj.hasOwnProperty("submenu")) {
                   menuButtnHandler(evnt, obj.iconText, obj["submenu"]);
-                }else{
-                  console.log("don't have sub menu");
+                } else {
+                  // console.log("don't have sub menu");
                 }
-               
               }}
               onMouseOver={(evnt) => {
                 evnt.target.style.backgroundColor = "#DCDCDC";
@@ -100,10 +132,23 @@ export default function Leftsidemenu() {
               onMouseOut={(evnt) => {
                 evnt.target.style.backgroundColor = "#eeeeee";
               }}
-              style={cssobject["button_css"]}
+              style={
+                backArrow.show == false
+                  ? cssobject["button_css"]
+                  : cssobject["submenu_buttn_css"]
+              }
             >
-              {<span> {obj.icon}</span>}
-              <span style={cssobject["iconTextcss"]}> {obj.iconText}</span>
+              {<span style={{color:"#050e42"}}> {obj.icon}</span>}
+              <span
+                style={
+                  backArrow.show == false
+                    ? cssobject["iconTextcss"]
+                    : cssobject["submenu_iconTextcss"]
+                }
+              >
+                {" "}
+                {obj.iconText}
+              </span>
             </button>
           );
         })}
