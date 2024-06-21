@@ -22,8 +22,7 @@ export default function TopNavRightComponent() {
           onMouseOut={(event)=>{event.target.style.fill="#041E42"}}
     />,
       icontext:"Response",
-      icontextcss:{ // marginTop: "-1.2vh",
-        // margin: "auto",
+      icontextcss:{ 
         fontSize: "2.8vw",
         fontWeight: "600",
         color: "#041E42",
@@ -34,10 +33,8 @@ export default function TopNavRightComponent() {
       grid_xs: 4,
       icon: <SettingsIcon
       style={{
-        // margin: "auto",
         height: "4.2vh",
         width: "100%",
-        // marginTop: "1vh",
         fill:"#041E42",
         // border:"2px solid yellow"
       }}
@@ -45,8 +42,7 @@ export default function TopNavRightComponent() {
       onMouseOut={(event)=>{event.target.style.fill="#041E42"}}
     />,
       icontext:"Setting",
-      icontextcss:{// marginTop: "-1.2vh",
-        // margin: "auto",
+      icontextcss:{
         fontSize: "2.8vw",
         fontWeight: "600",
         color: "#041E42",
@@ -57,10 +53,8 @@ export default function TopNavRightComponent() {
       grid_xs: 4,
       icon:<AccountCircleIcon
       style={{
-        // margin: "auto",
         height: "4.2vh",
         width: "100%",
-        // marginTop: "1vh",
         fill:"#041E42",
         // border:"2px solid yellow"
       }}
@@ -68,8 +62,8 @@ export default function TopNavRightComponent() {
       onMouseOut={(event)=>{event.target.style.fill="#041E42"}}
     />,
       icontext:"Mohd Israr",
-      icontextcss:{// marginTop: "-1.2vh",
-        // margin: "auto",
+      icontextcss:{
+        
         fontSize: "2.8vw",
         fontWeight: "600",
         color: "#041E42",
