@@ -7,8 +7,7 @@ export default function Lowerparentcontainer() {
   return (
     <MyContext.Provider value={MenuData} secondvalue="anirudh">
     <Grid container style={{height:"89vh",backgroundColor: "#eeeeee",}}>
-    <Grid xs={2} style={{ height:"100%"
-    }}>
+    <Grid xs={2} style={{ height:"100%"}}>
     
     <Leftsidemenu />
     </Grid>
